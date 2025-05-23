@@ -1,80 +1,119 @@
-
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>VN Tony Travel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Du Lịch Cao Cấp Lào Cai</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #fff; }
-    header { background: #004080; color: white; padding: 20px; text-align: center; }
-    nav { background: #0066cc; display: flex; justify-content: space-around; padding: 10px; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    .hero { background: url('https://source.unsplash.com/featured/?travel') center/cover no-repeat; height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: bold; }
-    .tour-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
-    .tour { border: 1px solid #ccc; border-radius: 10px; overflow: hidden; }
-    .tour img { width: 100%; height: 180px; object-fit: cover; }
-    .tour-content { padding: 15px; }
-    .tour h3 { margin: 0; color: #004080; }
-    .tour p { color: #333; }
-    .price { font-weight: bold; color: #e60000; }
-    .button { margin-top: 10px; display: inline-block; padding: 10px 15px; background: #e67e22; color: white; border-radius: 5px; text-decoration: none; }
-    footer { background: #004080; color: white; text-align: center; padding: 15px; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    nav { background: #0044cc; padding: 15px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    .container { padding: 20px; max-width: 900px; margin: auto; }
+    .banner { width: 100%; border-radius: 12px; margin: 20px 0; }
+    .tour { border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin-bottom: 30px; }
+    .tour h2 { color: #0044cc; margin-top: 0; }
+    .tour label { display: block; margin: 5px 0; }
+    .tour input, .tour select { padding: 5px; margin-bottom: 10px; width: 100%; }
+    .book-btn { background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+    footer { background: #eee; padding: 10px; text-align: center; margin-top: 30px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>DU LỊCH CAO CẤP LÀO CAI</h1>
-    <p>Hành trình sang trọng – Dịch vụ tận tâm</p>
-  </header>
 
-  <nav>
-    <a href="#">Trang chủ</a>
-    <a href="#">Tour trong nước</a>
-    <a href="#">Tour nước ngoài</a>
-    <a href="#">Dịch vụ</a>
-    <a href="#">Liên hệ</a>
-  </nav>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="tour-domestic/index.html">Tour trong nước</a>
+  <a href="tour-international/index.html">International Tours</a>
+  <a href="services/index.html">Services</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-  <div class="hero">
-    Chuyến đi mơ ước bắt đầu từ đây
+<div class="container">
+  <h1>Welcome to VN Tony Travel</h1>
+  <p>Explore Vietnam and the world with our premium tours.</p>
+  <img src="images/banner.jpg" alt="VN Tony Travel Banner" class="banner">
+
+  <!-- TOUR 1 -->
+  <div class="tour">
+    <h2>Halong Bay 3 Days 2 Nights</h2>
+    <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
+    <form oninput="updateTotal(this, 7500000)">
+      <label>Start Date: <input type="date" required></label>
+      <label>End Date: <input type="date" required></label>
+      <label>Number of People: <input type="number" value="1" min="1" required></label>
+      <label>Payment Option:
+        <select>
+          <option value="50">Pay 50%</option>
+          <option value="100">Pay 100%</option>
+        </select>
+      </label>
+      <p><strong>Total to Pay: <span class="total">3,750,000</span>₫</strong></p>
+      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
+      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+    </form>
   </div>
 
-  <section class="tour-list">
-    <div class="tour">
-      <img src="https://source.unsplash.com/featured/?halong" alt="Tour Hạ Long">
-      <div class="tour-content">
-        <h3>Hạ Long 3N2Đ (Tăng giá 50%)</h3>
-        <p>Khám phá vịnh biển tuyệt đẹp, nghỉ dưỡng đẳng cấp.</p>
-        <div class="price">Giá: 7.500.000₫</div>
-        <a href="https://zalo.me/0333104059" class="button">Đặt tour</a>
-      </div>
-    </div>
-    <div class="tour">
-      <img src="https://source.unsplash.com/featured/?sapa" alt="Tour Sa Pa">
-      <div class="tour-content">
-        <h3>Sa Pa Fansipan 2N1Đ (Tăng giá 50%)</h3>
-        <p>Chinh phục nóc nhà Đông Dương, trải nghiệm bản sắc dân tộc.</p>
-        <div class="price">Giá: 3.750.000₫</div>
-        <a href="https://zalo.me/0333104059" class="button">Đặt tour</a>
-      </div>
-    </div>
-    <div class="tour">
-      <img src="https://source.unsplash.com/featured/?danang" alt="Tour Đà Nẵng">
-      <div class="tour-content">
-        <h3>Đà Nẵng – Hội An 4N3Đ (Tăng giá 50%)</h3>
-        <p>Thành phố đáng sống nhất Việt Nam với biển xanh và phố cổ.</p>
-        <div class="price">Giá: 9.000.000₫</div>
-        <a href="https://zalo.me/0333104059" class="button">Đặt tour</a>
-      </div>
-    </div>
-  </section>
+  <!-- TOUR 2 -->
+  <div class="tour">
+    <h2>Sapa Fansipan 2 Days 1 Night</h2>
+    <p><strong>Highlights:</strong> Cable car to Fansipan, Cat Cat village, ethnic costume experience</p>
+    <form oninput="updateTotal(this, 3750000)">
+      <label>Start Date: <input type="date" required></label>
+      <label>End Date: <input type="date" required></label>
+      <label>Number of People: <input type="number" value="1" min="1" required></label>
+      <label>Payment Option:
+        <select>
+          <option value="50">Pay 50%</option>
+          <option value="100">Pay 100%</option>
+        </select>
+      </label>
+      <p><strong>Total to Pay: <span class="total">1,875,000</span>₫</strong></p>
+      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
+      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+    </form>
+  </div>
 
-  <footer>
-    <p>Liên hệ: Zalo 0333104059 | MB Bank: 1501011996 – Lồ A Chư</p>
-    <p>Email: chutrau.lo@gmail.com</p>
-  </footer>
+  <!-- TOUR 3 -->
+  <div class="tour">
+    <h2>Danang - Hoi An 4 Days 3 Nights</h2>
+    <p><strong>Highlights:</strong> Golden Bridge, My Khe Beach, Hoi An lantern town</p>
+    <form oninput="updateTotal(this, 9000000)">
+      <label>Start Date: <input type="date" required></label>
+      <label>End Date: <input type="date" required></label>
+      <label>Number of People: <input type="number" value="1" min="1" required></label>
+      <label>Payment Option:
+        <select>
+          <option value="50">Pay 50%</option>
+          <option value="100">Pay 100%</option>
+        </select>
+      </label>
+      <p><strong>Total to Pay: <span class="total">4,500,000</span>₫</strong></p>
+      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
+      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+    </form>
+  </div>
+</div>
+
+<script>
+  function updateTotal(form, price) {
+    const people = parseInt(form.querySelector('input[type="number"]').value);
+    const percent = parseInt(form.querySelector('select').value);
+    const total = (price * people * percent / 100).toLocaleString('vi-VN');
+    form.querySelector('.total').textContent = total;
+  }
+</script>
+
+<!-- Chat -->
+<a href="https://zalo.me/84333104059" target="_blank" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
+  <img src="https://stc.zalo.me/plugins/images/zalo-icon.png" alt="Chat Zalo" width="50" height="50">
+</a>
+<a href="https://wa.me/84333104059" target="_blank" style="position:fixed;bottom:20px;left:20px;z-index:1000;">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat WhatsApp" width="50" height="50">
+</a>
+
+<footer>
+  &copy; 2025 VN Tony Travel. All rights reserved.
+</footer>
+
 </body>
 </html>
