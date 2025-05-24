@@ -53,6 +53,8 @@
       font-weight: bold;
       margin-top: 10px;
       border-radius: 5px;
+      border: none;
+      cursor: pointer;
     }
     .create-btn {
       background-color: #0051d4;
@@ -71,6 +73,12 @@
     .chat-links a {
       display: inline-block;
       margin-left: 10px;
+    }
+    input, select {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -96,9 +104,15 @@
       <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
       <form action="https://formsubmit.co/trufoh.class22@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Tour Booking from VN Tony Travel">
-        <p>Name: <input type="text" name="Name" required></p>
-        <p>Start Date: <input type="date" name="Start Date" required></p>
-        <p>End Date: <input type="date" name="End Date" required></p>
+        <label for="name">Name:</label>
+        <input type="text" name="Name" required>
+
+        <label for="start">Start Date:</label>
+        <input type="date" name="Start Date" required>
+
+        <label for="end">End Date:</label>
+        <input type="date" name="End Date" required>
+
         <input type="hidden" name="_captcha" value="false">
         <button class="book-btn" type="submit">Book Tour</button>
       </form>
@@ -106,8 +120,12 @@
   </div>
 
   <div class="chat-links">
-    <a href="https://zalo.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="40"></a>
-    <a href="https://wa.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40"></a>
+    <a href="https://zalo.me/" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="40">
+    </a>
+    <a href="https://wa.me/" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
+    </a>
   </div>
 
   <script>
@@ -115,8 +133,7 @@
       var pass = prompt("Please enter the password to create HTML:");
       if (pass === "1994") {
         alert("Access granted. You can now create HTML.");
-        // Replace below with any function you want to trigger
-        window.location.href = "https://github.com/lohoangthientru94/VNTonyTravel";
+        window.location.href = "https://github.com/lohoangthientru94/Website-dulich";
       } else {
         alert("Wrong password.");
       }
