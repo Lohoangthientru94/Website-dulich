@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>VN Tony Travel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    body { margin: 0; font-family: Arial, sans-serif; }
     nav {
       background: #0044cc;
       display: flex;
@@ -17,40 +17,72 @@
       padding: 15px 20px;
       text-decoration: none;
       font-weight: bold;
-      display: block;
     }
-    .container { padding: 20px; max-width: 900px; margin: auto; }
-    .banner { width: 100%; border-radius: 12px; margin: 20px 0; }
+    header {
+      position: relative;
+      text-align: center;
+    }
+    header img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .header-text {
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 36px;
+      color: white;
+      font-weight: bold;
+      background: rgba(0,0,0,0.4);
+      padding: 20px 0;
+    }
+    .container { max-width: 900px; margin: auto; padding: 20px; }
     .tour {
+      background: #f9f9f9;
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 30px;
     }
     .tour h2 { color: #0044cc; margin-top: 0; }
-    .tour label { display: block; margin: 5px 0; }
     .tour input, .tour select {
-      padding: 5px;
-      margin-bottom: 10px;
-      width: 100%;
+      width: 100%; padding: 8px; margin-bottom: 10px;
     }
     .book-btn {
       background: #28a745;
       color: white;
-      padding: 10px 15px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
     }
-    .img-link { display: block; margin: 15px 0; }
-    .img-link img { width: 100%; border-radius: 10px; }
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #c62828;
+    }
+    .create-btn {
+      display: inline-block;
+      margin: 20px 0;
+      background: #0044cc;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
     footer {
       background: #eee;
-      padding: 10px;
       text-align: center;
-      margin-top: 30px;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -64,88 +96,94 @@
   <a href="contact.html">Contact</a>
 </nav>
 
+<header>
+  <img src="images/hero.jpg" alt="Hero Background" />
+  <div class="header-text">Welcome to Tony Travel</div>
+</header>
+
 <div class="container">
-  <h1>Welcome to VN Tony Travel</h1>
-  <p>Explore Vietnam and the world with our premium tours.</p>
-  <img src="images/banner.jpg" alt="VN Tony Travel Banner" class="banner">
+  <h1 style="text-align:center;">VN Tony Travel</h1>
+  <p style="text-align:center;">Explore Vietnam and the world with our premium tours.</p>
+
+  <a href="https://github.com/new" target="_blank" class="create-btn">+ Create HTML</a>
 
   <!-- TOUR 1 -->
   <div class="tour">
     <h2>Halong Bay 3 Days 2 Nights</h2>
-    <a href="images/halong.jpg" class="img-link" target="_blank">
-      <img src="images/halong.jpg" alt="Halong Tour Image">
-    </a>
     <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
-    <form oninput="updateTotal(this, 7500000)">
-      <label>Start Date: <input type="date" required></label>
-      <label>End Date: <input type="date" required></label>
-      <label>Number of People: <input type="number" value="1" min="1" required></label>
+    <form onsubmit="sendMail(event, 'Halong', 7500000)">
+      <label>Start Date: <input type="date" name="start" required /></label>
+      <label>End Date: <input type="date" name="end" required /></label>
+      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
       <label>Payment Option:
-        <select>
+        <select name="percent">
           <option value="50">Pay 50%</option>
           <option value="100">Pay 100%</option>
         </select>
       </label>
-      <p><strong>Total to Pay: <span class="total">3,750,000</span>₫</strong></p>
-      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
-      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+      <div class="price-line">
+        <span>Total: <span class="total">3,750,000₫</span></span>
+        <button class="book-btn" type="submit">Book Tour</button>
+      </div>
     </form>
   </div>
 
   <!-- TOUR 2 -->
   <div class="tour">
     <h2>Sapa Fansipan 2 Days 1 Night</h2>
-    <a href="images/sapa.jpg" class="img-link" target="_blank">
-      <img src="images/sapa.jpg" alt="Sapa Tour Image">
-    </a>
-    <p><strong>Highlights:</strong> Cable car to Fansipan, Cat Cat village, ethnic costume experience</p>
-    <form oninput="updateTotal(this, 3750000)">
-      <label>Start Date: <input type="date" required></label>
-      <label>End Date: <input type="date" required></label>
-      <label>Number of People: <input type="number" value="1" min="1" required></label>
+    <p><strong>Highlights:</strong> Cable car, Cat Cat village, ethnic costume experience</p>
+    <form onsubmit="sendMail(event, 'Sapa', 3750000)">
+      <label>Start Date: <input type="date" name="start" required /></label>
+      <label>End Date: <input type="date" name="end" required /></label>
+      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
       <label>Payment Option:
-        <select>
+        <select name="percent">
           <option value="50">Pay 50%</option>
           <option value="100">Pay 100%</option>
         </select>
       </label>
-      <p><strong>Total to Pay: <span class="total">1,875,000</span>₫</strong></p>
-      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
-      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+      <div class="price-line">
+        <span>Total: <span class="total">1,875,000₫</span></span>
+        <button class="book-btn" type="submit">Book Tour</button>
+      </div>
     </form>
   </div>
 
   <!-- TOUR 3 -->
   <div class="tour">
     <h2>Danang - Hoi An 4 Days 3 Nights</h2>
-    <a href="images/danang.jpg" class="img-link" target="_blank">
-      <img src="images/danang.jpg" alt="Danang Tour Image">
-    </a>
     <p><strong>Highlights:</strong> Golden Bridge, My Khe Beach, Hoi An lantern town</p>
-    <form oninput="updateTotal(this, 9000000)">
-      <label>Start Date: <input type="date" required></label>
-      <label>End Date: <input type="date" required></label>
-      <label>Number of People: <input type="number" value="1" min="1" required></label>
+    <form onsubmit="sendMail(event, 'Danang', 9000000)">
+      <label>Start Date: <input type="date" name="start" required /></label>
+      <label>End Date: <input type="date" name="end" required /></label>
+      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
       <label>Payment Option:
-        <select>
+        <select name="percent">
           <option value="50">Pay 50%</option>
           <option value="100">Pay 100%</option>
         </select>
       </label>
-      <p><strong>Total to Pay: <span class="total">4,500,000</span>₫</strong></p>
-      <p><strong>Bank Transfer:</strong> MB Bank – 1501011996 – Lồ A Chư</p>
-      <p><a href="https://www.paypal.me/loachu" target="_blank" class="book-btn">Pay with PayPal</a></p>
+      <div class="price-line">
+        <span>Total: <span class="total">4,500,000₫</span></span>
+        <button class="book-btn" type="submit">Book Tour</button>
+      </div>
     </form>
   </div>
 </div>
 
 <script>
-  function updateTotal(form, price) {
-    const people = parseInt(form.querySelector('input[type="number"]').value) || 1;
-    const percent = parseInt(form.querySelector('select').value) || 100;
-    const total = (price * people * percent / 100).toLocaleString('vi-VN');
-    form.querySelector('.total').textContent = total;
-  }
+function sendMail(e, tour, price) {
+  e.preventDefault();
+  const f = e.target;
+  const start = f.start.value;
+  const end = f.end.value;
+  const people = +f.people.value;
+  const percent = +f.percent.value;
+  const total = (price * people * percent / 100).toLocaleString('vi-VN');
+  f.querySelector('.total').innerText = total + '₫';
+  const body = `Tour: ${tour}%0AStart: ${start}%0AEnd: ${end}%0APeople: ${people}%0APayment: ${percent}%25%0ATotal: ${total}₫`;
+  window.location.href = `mailto:trufoh.class22@gmail.com?subject=Booking ${tour}&body=${body}`;
+}
 </script>
 
 <!-- Chat -->
@@ -159,6 +197,5 @@
 <footer>
   &copy; 2025 VN Tony Travel. All rights reserved.
 </footer>
-
 </body>
 </html>
