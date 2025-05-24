@@ -6,16 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    nav { background: #0044cc; padding: 15px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav {
+      background: #0044cc;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+    }
     .container { padding: 20px; max-width: 900px; margin: auto; }
     .banner { width: 100%; border-radius: 12px; margin: 20px 0; }
-    .tour { border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin-bottom: 30px; }
+    .tour {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
     .tour h2 { color: #0044cc; margin-top: 0; }
     .tour label { display: block; margin: 5px 0; }
-    .tour input, .tour select { padding: 5px; margin-bottom: 10px; width: 100%; }
-    .book-btn { background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
-    footer { background: #eee; padding: 10px; text-align: center; margin-top: 30px; }
+    .tour input, .tour select {
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .book-btn {
+      background: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .img-link { display: block; margin: 15px 0; }
+    .img-link img { width: 100%; border-radius: 10px; }
+    footer {
+      background: #eee;
+      padding: 10px;
+      text-align: center;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
@@ -36,6 +72,9 @@
   <!-- TOUR 1 -->
   <div class="tour">
     <h2>Halong Bay 3 Days 2 Nights</h2>
+    <a href="images/halong.jpg" class="img-link" target="_blank">
+      <img src="images/halong.jpg" alt="Halong Tour Image">
+    </a>
     <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
     <form oninput="updateTotal(this, 7500000)">
       <label>Start Date: <input type="date" required></label>
@@ -56,6 +95,9 @@
   <!-- TOUR 2 -->
   <div class="tour">
     <h2>Sapa Fansipan 2 Days 1 Night</h2>
+    <a href="images/sapa.jpg" class="img-link" target="_blank">
+      <img src="images/sapa.jpg" alt="Sapa Tour Image">
+    </a>
     <p><strong>Highlights:</strong> Cable car to Fansipan, Cat Cat village, ethnic costume experience</p>
     <form oninput="updateTotal(this, 3750000)">
       <label>Start Date: <input type="date" required></label>
@@ -76,6 +118,9 @@
   <!-- TOUR 3 -->
   <div class="tour">
     <h2>Danang - Hoi An 4 Days 3 Nights</h2>
+    <a href="images/danang.jpg" class="img-link" target="_blank">
+      <img src="images/danang.jpg" alt="Danang Tour Image">
+    </a>
     <p><strong>Highlights:</strong> Golden Bridge, My Khe Beach, Hoi An lantern town</p>
     <form oninput="updateTotal(this, 9000000)">
       <label>Start Date: <input type="date" required></label>
@@ -96,8 +141,8 @@
 
 <script>
   function updateTotal(form, price) {
-    const people = parseInt(form.querySelector('input[type="number"]').value);
-    const percent = parseInt(form.querySelector('select').value);
+    const people = parseInt(form.querySelector('input[type="number"]').value) || 1;
+    const percent = parseInt(form.querySelector('select').value) || 100;
     const total = (price * people * percent / 100).toLocaleString('vi-VN');
     form.querySelector('.total').textContent = total;
   }
