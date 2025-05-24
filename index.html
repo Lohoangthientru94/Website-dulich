@@ -1,127 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VN Tony Travel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Tony Travel</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    .navbar {
-      background-color: #0051d4;
-      padding: 10px;
-      text-align: center;
-    }
-    .navbar a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    body {margin: 0; font-family: Arial, sans-serif;}
     .hero {
-      background-image: url('https://source.unsplash.com/1600x900/?vietnam,travel');
+      background-image: url('https://lohoangthientru94.github.io/Website-dulich/assets/beach-coconut.jpg');
       background-size: cover;
       background-position: center;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
       color: white;
-      text-shadow: 2px 2px 4px #000;
+      padding: 100px 20px 50px;
+      text-align: center;
     }
-    .section {
+    .hero h1 {font-size: 48px; margin: 0; text-shadow: 2px 2px 4px #000;}
+    .hero p {font-size: 20px; margin-top: 10px; text-shadow: 1px 1px 3px #000;}
+    .search-form {
+      background: rgba(255,255,255,0.95);
+      max-width: 800px;
+      margin: 20px auto;
       padding: 20px;
+      border-radius: 8px;
     }
-    .tour-box {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
+    .search-form input, .search-form select {
+      padding: 10px;
+      margin: 5px;
+      width: 45%;
     }
-    .tour-box h2 {
-      color: #0047ab;
-    }
-    .book-btn {
-      display: inline-block;
-      background-color: green;
-      color: white;
+    .search-form button {
       padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    .create-btn {
-      background-color: #0051d4;
+      background: orange;
       color: white;
       border: none;
-      padding: 10px 20px;
-      margin: 10px 0;
+      font-weight: bold;
       cursor: pointer;
+    }
+    .section-title {
+      text-align: center;
+      color: #d44600;
+      font-size: 24px;
+      margin: 40px 0 20px;
+    }
+    .tours {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 20px;}
+    .tour-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 250px;
+      overflow: hidden;
+      text-align: center;
+      background: white;
+    }
+    .tour-card img {width: 100%; height: 160px; object-fit: cover;}
+    .tour-card h3 {margin: 10px 0 5px;}
+    .tour-card p {margin: 0 0 10px;}
+    .tour-card .price {font-weight: bold; color: red;}
+    .tour-card button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+      background: #007bff;
+      color: white;
+      border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
-    .chat-links {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-    }
-    .chat-links a {
-      display: inline-block;
-      margin-left: 10px;
-    }
+    .contact-buttons {position: fixed; bottom: 15px; right: 15px;}
+    .contact-buttons a {margin-left: 10px; display: inline-block;}
   </style>
 </head>
 <body>
-
-  <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">Tour trong nước</a>
-    <a href="#">International Tours</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-    <button class="create-btn" onclick="checkPassword()">+ Create HTML</button>
-  </div>
-
   <div class="hero">
     <h1>Welcome to Tony Travel</h1>
     <p>Explore Vietnam and the world with our premium tours.</p>
-  </div>
-
-  <div class="section">
-    <div class="tour-box">
-      <h2>Halong Bay 3 Days 2 Nights</h2>
-      <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
-      <form action="https://formsubmit.co/trufoh.class22@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Tour Booking from VN Tony Travel">
-        <p>Name: <input type="text" name="Name" required></p>
-        <p>Start Date: <input type="date" name="Start Date" required></p>
-        <p>End Date: <input type="date" name="End Date" required></p>
-        <input type="hidden" name="_captcha" value="false">
-        <button class="book-btn" type="submit">Book Tour</button>
-      </form>
+    <div class="search-form">
+      <select id="destination">
+        <option>Hà Nội</option>
+        <option>Sapa</option>
+        <option>Đà Nẵng</option>
+      </select>
+      <input type="date" id="startDate">
+      <input type="date" id="endDate">
+      <button onclick="searchTours()">Search</button>
     </div>
-  </div>
-
-  <div class="chat-links">
-    <a href="https://zalo.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="40"></a>
-    <a href="https://wa.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40"></a>
-  </div>
-
-  <script>
-    function checkPassword() {
-      var pass = prompt("Please enter the password to create HTML:");
-      if (pass === "1994") {
-        alert("Access granted. You can now create HTML.");
-        // Replace below with any function you want to trigger
-        window.location.href = "https://github.com/lohoangthientru94/VNTonyTravel";
-      } else {
-        alert("Wrong password.");
-      }
+  </div>  <h2 class="section-title">TOUR GIỜ CHÓT TỐT</h2>
+  <div class="tours" id="tourList">
+    <!-- Tour cards sẽ được tạo thêm qua HTML riêng biệt -->
+    <div class="tour-card">
+      <img src="https://source.unsplash.com/400x300/?sapa" alt="Tour">
+      <h3>Hà Nội - Sapa</h3>
+      <p>Khởi hành từ Hà Nội</p>
+      <p class="price">3.879.000đ</p>
+      <button onclick="bookTour('Hà Nội - Sapa')">Đặt tour</button>
+    </div>
+  </div>  <div class="contact-buttons">
+    <a href="https://zalo.me/0333104059" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" width="40"></a>
+    <a href="https://wa.me/84333104059" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="40"></a>
+  </div>  <script>
+    function searchTours() {
+      const dest = document.getElementById('destination').value;
+      alert('Gợi ý các tour tới ' + dest + ' sẽ được hiện ở đây.');
     }
-  </script>
 
-</body>
-</html>
+    function bookTour(tourName) {
+      const payment = prompt("Chọn hình thức thanh
