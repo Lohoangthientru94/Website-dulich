@@ -2,200 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VN Tony Travel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    nav {
-      background: #0044cc;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
-    nav a {
+    .navbar {
+      background-color: #0051d4;
+      padding: 10px;
+      text-align: center;
+    }
+    .navbar a {
       color: white;
-      padding: 15px 20px;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
-    header {
-      position: relative;
-      text-align: center;
-    }
-    header img {
-      width: 100%;
+    .hero {
+      background-image: url('https://source.unsplash.com/1600x900/?vietnam,travel');
+      background-size: cover;
+      background-position: center;
       height: 400px;
-      object-fit: cover;
-    }
-    .header-text {
-      position: absolute;
-      top: 30px;
-      width: 100%;
-      text-align: center;
-      font-size: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       color: white;
-      font-weight: bold;
-      background: rgba(0,0,0,0.4);
-      padding: 20px 0;
+      text-shadow: 2px 2px 4px #000;
     }
-    .container { max-width: 900px; margin: auto; padding: 20px; }
-    .tour {
-      background: #f9f9f9;
+    .section {
+      padding: 20px;
+    }
+    .tour-box {
       border: 1px solid #ccc;
       border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 30px;
+      padding: 15px;
+      margin-top: 20px;
     }
-    .tour h2 { color: #0044cc; margin-top: 0; }
-    .tour input, .tour select {
-      width: 100%; padding: 8px; margin-bottom: 10px;
+    .tour-box h2 {
+      color: #0047ab;
     }
     .book-btn {
-      background: #28a745;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .price-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 18px;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #c62828;
-    }
-    .create-btn {
       display: inline-block;
-      margin: 20px 0;
-      background: #0044cc;
+      background-color: green;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
       border-radius: 5px;
     }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+    .create-btn {
+      background-color: #0051d4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 0;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .chat-links {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+    .chat-links a {
+      display: inline-block;
+      margin-left: 10px;
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="tour-domestic/index.html">Tour trong nước</a>
-  <a href="tour-international/index.html">International Tours</a>
-  <a href="services/index.html">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<header>
-  <img src="images/hero.jpg" alt="Hero Background" />
-  <div class="header-text">Welcome to Tony Travel</div>
-</header>
-
-<div class="container">
-  <h1 style="text-align:center;">VN Tony Travel</h1>
-  <p style="text-align:center;">Explore Vietnam and the world with our premium tours.</p>
-
-  <a href="https://github.com/new" target="_blank" class="create-btn">+ Create HTML</a>
-
-  <!-- TOUR 1 -->
-  <div class="tour">
-    <h2>Halong Bay 3 Days 2 Nights</h2>
-    <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
-    <form onsubmit="sendMail(event, 'Halong', 7500000)">
-      <label>Start Date: <input type="date" name="start" required /></label>
-      <label>End Date: <input type="date" name="end" required /></label>
-      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
-      <label>Payment Option:
-        <select name="percent">
-          <option value="50">Pay 50%</option>
-          <option value="100">Pay 100%</option>
-        </select>
-      </label>
-      <div class="price-line">
-        <span>Total: <span class="total">3,750,000₫</span></span>
-        <button class="book-btn" type="submit">Book Tour</button>
-      </div>
-    </form>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Tour trong nước</a>
+    <a href="#">International Tours</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+    <button class="create-btn" onclick="checkPassword()">+ Create HTML</button>
   </div>
 
-  <!-- TOUR 2 -->
-  <div class="tour">
-    <h2>Sapa Fansipan 2 Days 1 Night</h2>
-    <p><strong>Highlights:</strong> Cable car, Cat Cat village, ethnic costume experience</p>
-    <form onsubmit="sendMail(event, 'Sapa', 3750000)">
-      <label>Start Date: <input type="date" name="start" required /></label>
-      <label>End Date: <input type="date" name="end" required /></label>
-      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
-      <label>Payment Option:
-        <select name="percent">
-          <option value="50">Pay 50%</option>
-          <option value="100">Pay 100%</option>
-        </select>
-      </label>
-      <div class="price-line">
-        <span>Total: <span class="total">1,875,000₫</span></span>
-        <button class="book-btn" type="submit">Book Tour</button>
-      </div>
-    </form>
+  <div class="hero">
+    <h1>Welcome to Tony Travel</h1>
+    <p>Explore Vietnam and the world with our premium tours.</p>
   </div>
 
-  <!-- TOUR 3 -->
-  <div class="tour">
-    <h2>Danang - Hoi An 4 Days 3 Nights</h2>
-    <p><strong>Highlights:</strong> Golden Bridge, My Khe Beach, Hoi An lantern town</p>
-    <form onsubmit="sendMail(event, 'Danang', 9000000)">
-      <label>Start Date: <input type="date" name="start" required /></label>
-      <label>End Date: <input type="date" name="end" required /></label>
-      <label>Number of People: <input type="number" name="people" value="1" min="1" required /></label>
-      <label>Payment Option:
-        <select name="percent">
-          <option value="50">Pay 50%</option>
-          <option value="100">Pay 100%</option>
-        </select>
-      </label>
-      <div class="price-line">
-        <span>Total: <span class="total">4,500,000₫</span></span>
+  <div class="section">
+    <div class="tour-box">
+      <h2>Halong Bay 3 Days 2 Nights</h2>
+      <p><strong>Highlights:</strong> Cruise, seafood meals, beach visits, kayaking</p>
+      <form action="https://formsubmit.co/trufoh.class22@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Tour Booking from VN Tony Travel">
+        <p>Name: <input type="text" name="Name" required></p>
+        <p>Start Date: <input type="date" name="Start Date" required></p>
+        <p>End Date: <input type="date" name="End Date" required></p>
+        <input type="hidden" name="_captcha" value="false">
         <button class="book-btn" type="submit">Book Tour</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 
-<script>
-function sendMail(e, tour, price) {
-  e.preventDefault();
-  const f = e.target;
-  const start = f.start.value;
-  const end = f.end.value;
-  const people = +f.people.value;
-  const percent = +f.percent.value;
-  const total = (price * people * percent / 100).toLocaleString('vi-VN');
-  f.querySelector('.total').innerText = total + '₫';
-  const body = `Tour: ${tour}%0AStart: ${start}%0AEnd: ${end}%0APeople: ${people}%0APayment: ${percent}%25%0ATotal: ${total}₫`;
-  window.location.href = `mailto:trufoh.class22@gmail.com?subject=Booking ${tour}&body=${body}`;
-}
-</script>
+  <div class="chat-links">
+    <a href="https://zalo.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="40"></a>
+    <a href="https://wa.me/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40"></a>
+  </div>
 
-<!-- Chat -->
-<a href="https://zalo.me/84333104059" target="_blank" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
-  <img src="https://stc.zalo.me/plugins/images/zalo-icon.png" alt="Chat Zalo" width="50" height="50">
-</a>
-<a href="https://wa.me/84333104059" target="_blank" style="position:fixed;bottom:20px;left:20px;z-index:1000;">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat WhatsApp" width="50" height="50">
-</a>
+  <script>
+    function checkPassword() {
+      var pass = prompt("Please enter the password to create HTML:");
+      if (pass === "1994") {
+        alert("Access granted. You can now create HTML.");
+        // Replace below with any function you want to trigger
+        window.location.href = "https://github.com/lohoangthientru94/VNTonyTravel";
+      } else {
+        alert("Wrong password.");
+      }
+    }
+  </script>
 
-<footer>
-  &copy; 2025 VN Tony Travel. All rights reserved.
-</footer>
 </body>
 </html>
